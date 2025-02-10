@@ -34,14 +34,14 @@ router.get("/payment-page", ensureAuthenticated, checkVerification, async (req, 
         const site = siteObj.toObject();
         let wallet;
         if(method.toLowerCase().trim() == "bitcoin"){
-            console.log(site.bitcoin);
-            wallet = site.bitcoin;
+            console.log(site.bitcoinAddress);
+            wallet = site.bitcoinAddress;
         }else if(method.toLowerCase().trim() == "ethereum"){
-            console.log(site.ethereum);
-            wallet = site.ethereum;
+            console.log(site.ethereumAddress);
+            wallet = site.ethereumAddress;
         }else if(method.toLowerCase().trim() == "usdt"){
-            console.log(site.usdt);
-            wallet = site.usdt;
+            console.log(site.usdtAddress);
+            wallet = site.usdtAddress;
         }
         return res.render("paymentPage", { res, pageTitle: "Funding", req, wallet, amount, method, comma, layout: "layout2" });
     } catch (err) {
