@@ -1,6 +1,6 @@
 <div class="main-panel">
   <div class="content-wrapper">
-    <div class="row"><%-include("./partials/messages")%></div>
+    <div class="row"><%- include("./partials/messages") %></div>
     <div class="row">
       <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
         <div class="card">
@@ -22,6 +22,58 @@
         </div>
       </div>
     </div>
+
+
+    <div class="row text-white">
+      <div class="col-12 grid-margin">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">History</h4>
+            <div class="table-responsive">
+              <table class="table" id="table3">
+                <thead>
+                  <tr>
+                    <th>Full Name</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% history.reverse().forEach(function(c) {%>
+                  <tr>
+                    <td class="text-white">
+                      <%= c.user.firstname + " " + c.user.lastname %>
+                    </td>
+                    <td class="text-white"><%= c.type %></td>
+                    <td class="text-white"><%= comma(c.amount) %></td>
+                    <td class="text-white">
+                      <div class="row">
+                        <% if(c.type === 'withdrawal') { %>
+                        <a
+                          href="/admin/approve-withdrawal/<%=c.reference%>"
+                          class="btn btn-primary"
+                          >Approve</a
+                        >
+                        <% } else { %>
+                        <a
+                          href="/admin/approve-deposit/<%=c.reference%>"
+                          class="btn btn-primary"
+                          >Approve</a
+                        >
+                        <%}%>
+                      </div>
+                    </td>
+                  </tr>
+                  <%})%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <div class="row text-white">
       <div class="col-12 grid-margin">
