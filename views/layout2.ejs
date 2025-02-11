@@ -134,7 +134,7 @@
         <div class="item"
             style="font-size:small; color:#FFFFFF; position:absolute; top:15px; text-transform:capitalize">
             <span><i class="fa fa-envelope-o"></i> <%= req.user.email %> </span><br>
-            <span style="margin-top:10px;"><b><i class="fa fa-money"></i> 0.00</b> <b>
+            <span style="margin-top:10px;"><b><i class="fa fa-money"></i> <%= req.user.balance%></b> <b>
                     USD</b></span>
             <br>
             <span>Kyc Verification:                            <span style="color:#FF0000" class="blinkred"><i class="fa fa-check-circle"></i> Required</span>
@@ -319,7 +319,7 @@
             </div>
         </nav>
         <script>
-        var balance = 0.00
+        var balance = <%= req.user.balance%>
         </script>
         <link rel="stylesheet" href="/assets/platform.css" />
         <style>
