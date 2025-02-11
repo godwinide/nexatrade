@@ -44,17 +44,22 @@ const UserSchema = new Schema({
         required: true
     },
     balance: {
-        type: String,
+        type: Number,
+        required: false,
+        default: 0
+    },
+    deposit:{
+        type: Number,
         required: false,
         default: 0
     },
     profit: {
-        type: String,
+        type: Number,
         required: false,
         default: 0
     },
     bonus: {
-        type: String,
+        type: Number,
         required: false,
         default: 50
     },
